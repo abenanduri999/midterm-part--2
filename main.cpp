@@ -244,12 +244,30 @@ int main() {
         if(prob <= 60)
         {
             random = rand() % names.size();
+            list.push_back(names[random]);
+            n2.push_back(names[random]);
+            cout<<n2.back()<<" joined the line"<<endl; 
            
 
         } 
         if(prob <= 20)
         {
             cout<<n2.back()<<" left the line."; 
+            list.pop_back();
+            list.print();
+        }
+
+         if(prob <= 10)
+        {
+            int ran = rand() % names.size();
+            cout<<n2[ran]<<" left the line."; 
+            list.delete_pos(ran);
+            list.print();
+        }
+
+         if(prob <= 10)
+        {
+            cout<<" A vip joined the line."; 
             list.pop_back();
             list.print();
         }
