@@ -1,5 +1,7 @@
 
 #include <iostream>
+#include <vector>
+#include <fstream>
 
 using namespace std;
 
@@ -10,10 +12,11 @@ class DoublyLinkedList {
         struct Node 
         {
             int data;
+            string name;
             Node* prev;
             Node* next;
             Node(int val, Node* p = nullptr, Node* n = nullptr) {
-            data = val;
+            data  = val; 
             prev = p;
             next = n;
         }
@@ -172,7 +175,7 @@ class DoublyLinkedList {
         }
         cout << endl;
         }
-        
+
         void print_reverse() {
         Node* current = tail;
         if (!current) {
@@ -188,7 +191,25 @@ class DoublyLinkedList {
 };
 int main() {
     
-    cout << MIN_NR + MIN_LS + MAX_NR + MAX_LS; // dummy statement to avoid
+     vector<string> names;
+
+     ifstream input;
+     string name;
+     input.open("name.txt");
+     
+       
+            while(input>>name)
+            {
+                names.push_back(name); 
+            }
+            for(int i = 0; i<name.size(); i++)
+            {
+                cout<<name[i]<<" ";
+            }
+        
+    input.close();
+
+    //cout << MIN_NR + MIN_LS + MAX_NR + MAX_LS; // dummy statement to avoid
 
     return 0;
     }
