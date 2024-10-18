@@ -211,14 +211,31 @@ int main() {
     input.close();
 
     DoublyLinkedList list;
-    int random = rand() % names.size(); 
+    srand(time(0));
+     int random = rand() % names.size(); 
 
     for (int i = 0; i < 5; i++)
     {
-        list.push_back(names[random]); 
+        list.push_back(names[random]);
+        random = rand() % names.size(); 
     }
+    cout<<"Store opens: "<<endl;
+    list.print();
+    cout<<"resulting line: "<<endl;
+    list.print(); 
 
-    //cout << MIN_NR + MIN_LS + MAX_NR + MAX_LS; // dummy statement to avoid
+    srand(time(0));
+    int prob = rand() % 100 + 1; 
+
+    for (int j = 0; j < 20; j++)
+    {
+        cout<<"Time step #"<<j + 1<<endl; 
+        
+
+
+
+    }
+   
 
     return 0;
     }
