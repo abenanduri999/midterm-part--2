@@ -240,7 +240,7 @@ int main() {
        
         if(prob <= 40)
         {
-           cout<<n2[0]<<" left the line."<<endl;
+           cout<<n2.front()<<" is served."<<endl;
            list.pop_front();
            cout<<"resulting line: "<<endl;
            list.print();
@@ -266,8 +266,8 @@ int main() {
 
          if(prob <= 10)
         {
-            int ran = rand() % names.size();
-            cout<<n2[ran]<<" left the line."; 
+            int ran = rand() % n2.size();
+            cout<<n2[ran]<<" left the line."<<endl; 
             list.delete_pos(ran);
             cout<<"resulting line: "<<endl;
             list.print();
