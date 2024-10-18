@@ -11,12 +11,13 @@ class DoublyLinkedList {
     private:
         struct Node 
         {
-            int data;
+            //int data;
             string name;
             Node* prev;
             Node* next;
-            Node(int val, Node* p = nullptr, Node* n = nullptr) {
-            data  = val; 
+            Node(string nm, Node* p = nullptr, Node* n = nullptr) {
+            //data  = val; 
+            name = nm;
             prev = p;
             next = n;
         }
@@ -27,12 +28,12 @@ class DoublyLinkedList {
     public:
         DoublyLinkedList() { head = nullptr; tail = nullptr; }
 
-        void insert_after(int value, int position) {
+        void insert_after(string n, int position) {
         if (position < 0) {
         cout << "Position must be >= 0." << endl;
         return;
         }
-        Node* newNode = new Node(value);
+        Node* newNode = new Node(n);
         if (!head) {
         head = tail = newNode;
         return;
@@ -54,10 +55,10 @@ class DoublyLinkedList {
         temp->next = newNode;
         }
 
-        void delete_val(int value) {
+        void delete_val(string n) {
         if (!head) return;
         Node* temp = head;
-        while (temp && temp->data != value)
+        while (temp && temp->name != n)
         temp = temp->next;
         if (!temp) return;
         if (temp->prev)
@@ -103,8 +104,8 @@ class DoublyLinkedList {
         delete temp;
         }
 
-        void push_back(int v) {
-        Node* newNode = new Node(v);
+        void push_back( string n) {
+        Node* newNode = new Node(n);
         if (!tail)
         head = tail = newNode;
         else {
@@ -114,8 +115,8 @@ class DoublyLinkedList {
         }
         }
 
-        void push_front(int v) {
-        Node* newNode = new Node(v);
+        void push_front(string n) {
+        Node* newNode = new Node(n);
         if (!head)
         head = tail = newNode;
         else {
@@ -170,7 +171,7 @@ class DoublyLinkedList {
         return;
         }
         while (current) {
-        cout << current->data << " ";
+        cout << current->name << " ";
         current = current->next;
         }
         cout << endl;
@@ -183,7 +184,7 @@ class DoublyLinkedList {
         return;
         }
         while (current) {
-        cout << current->data << " ";
+        cout << current->name << " ";
         current = current->prev;
         }
         cout << endl;
@@ -194,20 +195,28 @@ int main() {
      vector<string> names;
 
      ifstream input;
-     string name;
+     string n;
      input.open("name.txt");
      
        
-            while(input>>name)
+            while(input>>n)
             {
-                names.push_back(name); 
+                names.push_back(n); 
             }
-            for(int i = 0; i<name.size(); i++)
+           /* for(int i = 0; i < names.size(); i++)
             {
-                cout<<name[i]<<" ";
-            }
+                cout<<names[i]<<" ";
+            }*/
         
     input.close();
+
+    DoublyLinkedList list;
+    int random = rand() % names.size(); 
+
+    for (int i = 0; i < 5; i++)
+    {
+        list.push_back(names[random]); 
+    }
 
     //cout << MIN_NR + MIN_LS + MAX_NR + MAX_LS; // dummy statement to avoid
 
