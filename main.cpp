@@ -28,6 +28,8 @@ class DoublyLinkedList {
     public:
         DoublyLinkedList() { head = nullptr; tail = nullptr; }
 
+
+
         void insert_after(string n, int position) {
         if (position < 0) {
         cout << "Position must be >= 0." << endl;
@@ -172,7 +174,7 @@ class DoublyLinkedList {
         }
         while (current) {
         cout << current->name << " ";
-        current = current->next;
+       current = current->next;
         }
         cout << endl;
         }
@@ -210,6 +212,7 @@ int main() {
         
     input.close();
 
+    vector<string> n2;
     DoublyLinkedList list;
     srand(time(0));
      int random = rand() % names.size(); 
@@ -217,6 +220,7 @@ int main() {
     for (int i = 0; i < 5; i++)
     {
         list.push_back(names[random]);
+        n2.push_back(names[random]);
         random = rand() % names.size(); 
     }
     cout<<"Store opens: "<<endl;
@@ -230,8 +234,25 @@ int main() {
     for (int j = 0; j < 20; j++)
     {
         cout<<"Time step #"<<j + 1<<endl; 
-        
+       
+        if(prob <= 40)
+        {
+           cout<<n2[0]<<" left the line."<<endl;
+           list.pop_front();
+           list.print();
+        }
+        if(prob <= 60)
+        {
+            random = rand() % names.size();
+           
 
+        } 
+        if(prob <= 20)
+        {
+            cout<<n2.back()<<" left the line."; 
+            list.pop_back();
+            list.print();
+        }
 
 
     }
