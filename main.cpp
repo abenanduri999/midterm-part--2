@@ -173,7 +173,7 @@ class DoublyLinkedList {
         return;
         }
         while (current) {
-        cout << current->name << " ";
+        cout << current->name <<endl;
        current = current->next;
         }
         cout << endl;
@@ -225,8 +225,11 @@ int main() {
     }
     cout<<"Store opens: "<<endl;
     list.print();
+    cout<<endl<<endl; 
+
     cout<<"resulting line: "<<endl;
     list.print(); 
+    cout<<endl<<endl; 
 
     srand(time(0));
     int prob = rand() % 100 + 1; 
@@ -239,6 +242,7 @@ int main() {
         {
            cout<<n2[0]<<" left the line."<<endl;
            list.pop_front();
+           cout<<"resulting line: "<<endl;
            list.print();
         }
         if(prob <= 60)
@@ -247,6 +251,8 @@ int main() {
             list.push_back(names[random]);
             n2.push_back(names[random]);
             cout<<n2.back()<<" joined the line"<<endl; 
+            cout<<"resulting line: "<<endl;
+            list.print();
            
 
         } 
@@ -254,6 +260,7 @@ int main() {
         {
             cout<<n2.back()<<" left the line."; 
             list.pop_back();
+            cout<<"resulting line: "<<endl;
             list.print();
         }
 
@@ -262,16 +269,22 @@ int main() {
             int ran = rand() % names.size();
             cout<<n2[ran]<<" left the line."; 
             list.delete_pos(ran);
+            cout<<"resulting line: "<<endl;
             list.print();
         }
 
          if(prob <= 10)
         {
+            int ran = rand() % names.size();
+            list.push_front(names[ran]);
+            n2.insert(names.begin(), names[ran]);
             cout<<" A vip joined the line."; 
             list.pop_back();
+            cout<<"resulting line: "<<endl;
             list.print();
         }
 
+    prob = rand() % 100 + 1;
 
     }
    
